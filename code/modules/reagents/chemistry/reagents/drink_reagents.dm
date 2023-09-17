@@ -283,6 +283,28 @@
 	..()
 	. = 1
 
+/datum/reagent/consumable/milk_tea
+	name = "Milk Tea"
+	description = "Tea brewed with milk. Adding additional milk after pouring is ill advised, or so they say."
+	color = "#dd6e56" //rgb: 221 110 86
+	quality = DRINK_NICE
+	nutriment_factor = 2 * REAGENTS_METABOLISM
+	taste_description = "soothing ceylon tea with hints of cream"
+	glass_icon_state = "milk_tea"
+	glass_name = "cup of milk tea"
+	glass_desc = "Tea brewed with milk. Adding additional milk after pouring is ill advised, or so they say."
+
+/datum/reagent/consumable/milk_tea/on_mob_life(mob/living/carbon/M)
+	if(M.getBruteLoss() && prob(20))
+		M.heal_bodypart_damage(1,0, 0)
+	if(prob(5))
+		var/mob/living/carbon/human/H = M
+		H.adjustSanityLoss(-0.01*H.maxSanity*REM) // That's healing 1% of max sanity
+	if(M.getToxLoss() && prob(20))
+		M.adjustToxLoss(-1, 0)
+	..()
+	. = 1
+
 /datum/reagent/consumable/lemonade
 	name = "Lemonade"
 	description = "Sweet, tangy lemonade. Good for the soul."

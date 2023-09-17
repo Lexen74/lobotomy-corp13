@@ -596,3 +596,7 @@
 	results = list(/datum/reagent/consumable/ethanol/telepole = 5)
 	required_reagents = list(/datum/reagent/consumable/tea = 1, /datum/reagent/consumable/grapejuice = 2, /datum/reagent/consumable/ethanol/sake = 1)
 	mix_message = "You swear you saw a spark fly from the glass..."
+
+/datum/chemical_reaction/milk_tea
+	results = list(/datum/reagent/consumable/milk_tea = 4)
+	required_reagents = list(/datum/reagent/consumable/tea = 3, /datum/reagent/consumable/milk = 1)
